@@ -221,7 +221,7 @@ export default (
       if (action.type === NavigationActions.SET_PARAMS) {
         const lastRoute = state.routes.find(
           /* $FlowFixMe */
-          (route: *) => route.key === action.key
+          (route: *) => route.routeName === action.key
         );
         if (lastRoute) {
           const params = {
@@ -256,9 +256,13 @@ export default (
                   key: _getUuid(),
                 };
               }
+              const params = {
+                ...action.params,
+              };
               const route = {
                 ...childAction,
                 key: _getUuid(),
+                ...(params ? { params } : {}),
               };
               delete route.type;
               return route;
@@ -273,10 +277,10 @@ export default (
         if (action.key) {
           const backRoute = state.routes.find(
             /* $FlowFixMe */
-            (route: *) => route.key === action.key
+            (route: *) => route.routeName === action.key
           );
           /* $FlowFixMe */
-          backRouteIndex = state.routes.indexOf(backRoute);
+          backRouteIndex = state.routes.indexOf(backRoute)+1;
         }
         if (backRouteIndex == null) {
           return StateUtils.pop(state);
