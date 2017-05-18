@@ -277,7 +277,7 @@ export default (
         if (action.key) {
           const backRoute = state.routes.find(
             /* $FlowFixMe */
-            (route: *) => route.routeName === action.key
+            (route: *) => route.key === action.key
           );
           /* $FlowFixMe */
           backRouteIndex = state.routes.indexOf(backRoute);
