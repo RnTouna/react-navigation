@@ -299,13 +299,6 @@ const styles = StyleSheet.create({
     paddingTop: STATUSBAR_HEIGHT,
     backgroundColor: Platform.OS === 'ios' ? '#EFEFF2' : '#FFF',
     height: STATUSBAR_HEIGHT + APPBAR_HEIGHT,
-    shadowColor: 'black',
-    shadowOpacity: 0.1,
-    shadowRadius: StyleSheet.hairlineWidth,
-    shadowOffset: {
-      height: StyleSheet.hairlineWidth,
-    },
-    elevation: 4,
   },
   appBar: {
     flex: 1,
